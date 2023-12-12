@@ -1,5 +1,11 @@
 #!/bin/bash
 
+if [ "$EUID" -ne 0 ]; then
+    echo "This script needs to be run with root privileges. Please enter your password."
+    sudo "$0" "$@"  # Re-run the script with sudo
+    exit $?
+fi
+
 sudo apt update
 sudo apt install wget -y
 wget http://security.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2.20_amd64.deb
