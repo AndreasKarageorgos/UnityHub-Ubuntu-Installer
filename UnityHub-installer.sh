@@ -6,6 +6,9 @@ if [ "$EUID" -ne 0 ]; then
     exit $?
 fi
 
+sudo apt update
+clear
+
 while true; do
     echo "Do you want to also install C# (dotnet-sdk) to your system ? (yes/no)"
     read answer
@@ -25,7 +28,6 @@ while true; do
     esac
 done
 
-sudo apt update
 sudo apt install wget -y
 wget http://security.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2.20_amd64.deb
 sudo apt install ./libssl1.1_1.1.1f-1ubuntu2.20_amd64.deb
