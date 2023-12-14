@@ -6,6 +6,25 @@ if [ "$EUID" -ne 0 ]; then
     exit $?
 fi
 
+while true; do
+    echo "Do you want to also install C# (dotnet-sdk) to your system ? (yes/no)"
+    read answer
+
+    case "$answer" in
+        yes)
+            sudo apt install apt-transport-https -y
+            sudo apt install dotnet-sdk-7.0 -y
+            break
+            ;;
+        no)
+           break
+            ;;
+        *)
+            echo "Invalid input. Please enter 'yes' or 'no'."
+            ;;
+    esac
+done
+
 sudo apt update
 sudo apt install wget -y
 wget http://security.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2.20_amd64.deb
@@ -20,30 +39,5 @@ clear
 
 echo "UnityHub is installed on your System."
 echo "To remove it type 'sudo apt remove unityhub'"
-echo ""
-
-while true; do
-    echo "Do you want to also install C# (dotnet-sdk) to your system ? (yes/no)"
-    read answer
-
-    case "$answer" in
-        yes)
-            echo "Continuing..."
-            sudo apt install apt-transport-https -y
-            sudo apt install dotnet-sdk-7.0 -y
-            clear
-            echo "Done !"
-            echo "Type 'dotnet --version' to verify the installation"
-            break
-            ;;
-        no)
-            echo "Exiting."
-            exit 0
-            ;;
-        *)
-            echo "Invalid input. Please enter 'yes' or 'no'."
-            ;;
-    esac
-done
 
 
