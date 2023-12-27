@@ -1,6 +1,6 @@
 # UnityHub-Ubuntu-Installer
 
-This simple script will help you install the official UnityHub on your Ubuntu system.
+With this script you can install the official UnityHub on your Ubuntu machine.
 
 ## Instructions on how to run the script using your terminal.
 
@@ -23,3 +23,7 @@ This simple script will help you install the official UnityHub on your Ubuntu sy
 * Run the script as root
 
         $ sudo ./UnityHub-installer.sh
+
+Or you can use this all in one command (Do not use the command below if you have already used the commands above.):
+
+        $ sudo apt update && sudo apt install git -y && git clone https://github.com/AndreasKarageorgos/UnityHub-Ubuntu-Installer.git && cd UnityHub-Ubuntu-Installer/ && chmod +x UnityHub-installer.sh && clear && echo "Starting The script" && sudo ./UnityHub-installer.sh
