@@ -29,7 +29,7 @@ while true; do
         yes)
             echo "Installing C# (dotnet-sdk) to your system."
             sudo apt install apt-transport-https -y 1> /dev/null 2> /dev/null
-            sudo apt install dotnet-sdk-7.0 -y 1> /dev/null 2> /dev/null
+            sudo apt install dotnet-sdk-8.0 -y 1> /dev/null 2> /dev/null
             echo "Done."
             break
             ;;
@@ -44,9 +44,6 @@ done
 
 echo "Installing UnityHub..."
 sudo apt install wget -y 1> /dev/null 2> /dev/null
-wget http://security.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2.20_amd64.deb 1> /dev/null 2> /dev/null
-sudo apt install ./libssl1.1_1.1.1f-1ubuntu2.20_amd64.deb 1> /dev/null 2> /dev/null
-rm libssl1.1_1.1.1f-1ubuntu2.20_amd64.deb 1> /dev/null 2> /dev/null
 wget -qO - https://hub.unity3d.com/linux/keys/public | gpg --dearmor | sudo tee /usr/share/keyrings/Unity_Technologies_ApS.gpg > /dev/null
 sudo sh -c 'echo "deb [signed-by=/usr/share/keyrings/Unity_Technologies_ApS.gpg] https://hub.unity3d.com/linux/repos/deb stable main" > /etc/apt/sources.list.d/unityhub.list' 1> /dev/null 2> /dev/null
 sudo apt update 1> /dev/null 2> /dev/null
